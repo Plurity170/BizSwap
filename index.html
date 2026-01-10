@@ -1,68 +1,93 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>BizSwap – Buy & Sell Businesses</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #f9f9f9;
-    }
-    header {
-      background: #1769ff;
-      color: white;
-      text-align: center;
-      padding: 50px 20px;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    h1, h2, h3 {
-      margin-bottom: 10px;
-    }
-    .cta-links {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .cta-links a {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 20px;
-      background: #1769ff;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-    }
-    .cta-links a.secondary {
-      background: #444;
-    }
-    .steps {
-      background: white;
-      border-radius: 8px;
-      padding: 20px;
-      margin-top: 20px;
-    }
-    footer {
-      background: #222;
-      color: #ccc;
-      text-align: center;
-      padding: 25px 15px;
-      font-size: 14px;
-    }
-    footer a {
-      color: #9dbbff;
-      text-decoration: none;
-      margin: 0 8px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>BizSwap – Buy & Sell Businesses</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #1769ff;
+  --dark: #1f2937;
+  --light: #f3f4f6;
+  --card: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  background: var(--light);
+  color: #333;
+}
+
+header {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 50px 20px;
+}
+
+h1, h2, h3 {
+  margin-bottom: 10px;
+}
+
+p {
+  max-width: 700px;
+}
+
+.cta-links {
+  margin-top: 30px;
+}
+
+.cta-links a {
+  display: inline-block;
+  margin: 8px;
+  padding: 14px 24px;
+  border-radius: 8px;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cta-links a.secondary {
+  background: var(--dark);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+footer {
+  background: #111827;
+  color: #9ca3af;
+  text-align: center;
+  padding: 30px 15px;
+  font-size: 14px;
+}
+
+footer a {
+  color: #93c5fd;
+  text-decoration: none;
+  margin: 0 8px;
+}
+</style>
 </head>
 
 <body>
@@ -70,51 +95,48 @@
 <header>
   <h1>BizSwap</h1>
   <p>Where Business Buyers & Sellers Connect</p>
-  <p>A simple platform to discover, learn, and connect — without brokers or pressure.</p>
-</header>
-
-<section>
-  <h2>Buy or Sell a Business</h2>
-  <p>
-    BizSwap helps business owners looking to sell connect with serious buyers who
-    want real opportunities — supported by education and clarity, not hype.
-  </p>
+  <p>A discovery and education platform — no brokers, no pressure.</p>
 
   <div class="cta-links">
     <a href="buy.html">Buy a Business</a>
     <a href="sell.html" class="secondary">Sell a Business</a>
     <a href="studies.html" class="secondary">Explore Studies</a>
   </div>
-</section>
+</header>
 
 <section>
   <h2>How BizSwap Works</h2>
 
-  <div class="steps">
-    <h3>1. Discover Real Opportunities</h3>
-    <p>
-      Buyers explore listed businesses and educational studies to understand
-      which opportunities align with their goals.
-    </p>
+  <div class="cards">
+    <div class="card">
+      <h3>Discover Opportunities</h3>
+      <p>
+        Explore businesses and educational content to understand what fits your
+        goals before taking action.
+      </p>
+    </div>
 
-    <h3>2. Connect with Confidence</h3>
-    <p>
-      Sellers share clear, transparent information while buyers reach out
-      with informed intent.
-    </p>
+    <div class="card">
+      <h3>Connect Directly</h3>
+      <p>
+        Sellers present clearly. Buyers reach out informed.
+        No middlemen, no noise.
+      </p>
+    </div>
 
-    <h3>3. Make Informed Decisions</h3>
-    <p>
-      BizSwap supports clarity and preparation so both sides can move forward
-      with confidence.
-    </p>
+    <div class="card">
+      <h3>Decide with Confidence</h3>
+      <p>
+        BizSwap supports clarity so both sides move forward prepared.
+      </p>
+    </div>
   </div>
 </section>
 
 <footer>
   <p>
-    BizSwap is an educational and discovery platform. We do not act as brokers,
-    agents, or intermediaries, and we do not verify or guarantee business listings.
+    BizSwap is an educational and discovery platform.
+    We do not act as brokers or verify listings.
   </p>
   <p>
     <a href="index.html">Home</a> ·
