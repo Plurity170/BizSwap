@@ -1,62 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Sell a Business – BizSwap</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Sell a Business | BizSwap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
       margin: 0;
-      color: #333;
+      font-family: system-ui, Arial, sans-serif;
+      background: #f9fafb;
     }
+
     header {
-      background: #222;
+      background: #111827;
       color: white;
-      padding: 40px 20px;
+      padding: 60px 20px;
       text-align: center;
     }
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
+
+    form {
+      max-width: 600px;
+      background: white;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
     }
-    a {
-      color: #1769ff;
-      text-decoration: none;
-      font-weight: bold;
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: 600;
     }
 
-     .main-nav {
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  padding: 14px 20px;
-}
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+    }
 
-.nav-container {
-  max-width: 1000px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 20px;
-  color: #1769ff;
-}
-
-.nav-links a {
-  margin-left: 18px;
-  text-decoration: none;
-  color: #1f2937;
-  font-weight: 600;
-}
-
-.nav-links a:hover {
-  color: #1769ff;
-}
+    button {
+      margin-top: 25px;
+      padding: 14px;
+      width: 100%;
+      background: #1769ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+    }
   </style>
 </head>
 
@@ -64,7 +59,12 @@
 
 <nav class="main-nav">
   <div class="nav-container">
-    <strong class="logo">BizSwap</strong>
+    <div class="logo">BizSwap</div>
+
+    <button class="menu-toggle" aria-label="Toggle menu">
+      ☰
+    </button>
+
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="buy.html">Buy</a>
@@ -76,31 +76,21 @@
 
 <header>
   <h1>Sell a Business</h1>
-  <p>Present your business clearly to serious buyers.</p>
+  <p>Explore your options without pressure or obligation.</p>
 </header>
 
-<p>
-  <a href="submit.html">Submit Your Business →</a>
-</p>
+<form>
+  <label>Business Name</label>
+  <input type="text">
 
-<section>
-  <h2>Why Sell on BizSwap</h2>
-  <p>
-    BizSwap is built for sellers who value transparency and informed buyers.
-    You present your business clearly — buyers reach out knowing what they’re
-    looking for.
-  </p>
+  <label>Industry</label>
+  <input type="text">
 
-  <h2>Important Note</h2>
-  <p>
-    BizSwap does not act as a broker or intermediary. You remain in control
-    of your discussions, decisions, and outcomes.
-  </p>
+  <label>Short Description</label>
+  <textarea rows="4"></textarea>
 
-  <p>
-    <a href="index.html">← Back to Home</a>
-  </p>
-</section>
+  <button type="submit">Submit for Review</button>
+</form>
 
 </body>
 </html>
