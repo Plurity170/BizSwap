@@ -1,135 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BizSwap Studies</title>
+<meta charset="UTF-8">
+<title>Studies – BizSwap</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      background-color: #f5f5f5;
-      color: #333;
-    }
+<style>
+:root {
+  --primary: #1769ff;
+  --dark: #1f2937;
+  --light: #f3f4f6;
+  --card: #ffffff;
+}
 
-    header {
-      background-color: #1e6fff;
-      color: white;
-      padding: 25px 15px;
-      text-align: center;
-    }
+body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  background: var(--light);
+  color: #333;
+}
 
-    main {
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-      background-color: #ffffff;
-    }
+header {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
 
-    h1, h2 {
-      color: #222;
-    }
+section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 50px 20px;
+}
 
-    ul {
-      padding-left: 20px;
-    }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
 
-    .nav-link {
-      display: inline-block;
-      margin-bottom: 15px;
-      color: #1e6fff;
-      text-decoration: none;
-      font-weight: 600;
-    }
+.card {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
 
-    .primary-button {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 12px 22px;
-      background-color: #1e6fff;
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: 600;
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px;
-      background-color: #222;
-      color: #fff;
-      margin-top: 40px;
-    }
-  </style>
+a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+</style>
 </head>
 
 <body>
 
 <header>
   <h1>BizSwap Studies</h1>
-  <p>Educational insights to help buyers and sellers make informed business decisions.</p>
+  <p>Learn before you leap.</p>
 </header>
 
-<main>
-
-  <h2>Understanding Business Buying & Selling</h2>
+<section>
+  <h2>Why Studies Matter</h2>
   <p>
-    Buying or selling a business is a major decision that requires clear information,
-    proper valuation, and trusted communication. BizSwap is designed to simplify this
-    process for serious buyers and sellers.
+    Buying or selling a business is a serious decision.
+    BizSwap Studies exist to help you understand the landscape,
+    risks, and mindset required — before money or emotions get involved.
   </p>
 
-  <h2>Why Most Business Deals Fail</h2>
-  <ul>
-    <li>Lack of proper documentation</li>
-    <li>Unrealistic business valuations</li>
-    <li>Poor communication between parties</li>
-    <li>No clear transition plan</li>
-    <li>Emotional decision-making</li>
-  </ul>
+  <div class="cards">
+    <div class="card">
+      <h3>Buying a Business</h3>
+      <p>
+        Learn how to evaluate businesses, understand cash flow,
+        and identify red flags before making contact.
+      </p>
+    </div>
 
-  <h2>What Buyers Should Study</h2>
-  <ul>
-    <li>Cash flow and profitability</li>
-    <li>Existing customer base</li>
-    <li>Operational systems</li>
-    <li>Legal and compliance status</li>
-    <li>Growth potential</li>
-  </ul>
+    <div class="card">
+      <h3>Selling a Business</h3>
+      <p>
+        Understand how buyers think, what information matters,
+        and how to present your business clearly and honestly.
+      </p>
+    </div>
 
-  <h2>What Sellers Should Prepare</h2>
-  <ul>
-    <li>Clear financial records</li>
-    <li>Documented processes</li>
-    <li>Realistic pricing</li>
-    <li>Exit and handover plan</li>
-    <li>Transparency with buyers</li>
-  </ul>
+    <div class="card">
+      <h3>Common Mistakes</h3>
+      <p>
+        Explore real-world mistakes made by buyers and sellers —
+        and how to avoid costly errors.
+      </p>
+    </div>
 
-  <h2>BizSwap’s Role</h2>
-  <p>
-    BizSwap acts as a connection platform, helping buyers discover opportunities and
-    sellers reach serious prospects. We focus on simplicity, clarity, and trust-driven
-    transactions.
+    <div class="card">
+      <h3>Mindset & Preparation</h3>
+      <p>
+        Deals don’t fail only because of numbers.
+        Learn how preparation, patience, and clarity shape outcomes.
+      </p>
+    </div>
+  </div>
+
+  <p style="margin-top:30px;">
+    <a href="index.html">← Back to Home</a>
   </p>
-
-  <h2>Important Notice</h2>
-  <p>
-    BizSwap does not provide legal, financial, or investment advice. All information on
-    this page is for educational purposes only. Buyers and sellers are encouraged to
-    conduct independent due diligence and consult qualified professionals before
-    entering any transaction.
-  </p>
-
-  <a href="index.html" class="primary-button">Return to Home</a>
-
-</main>
-
-<footer>
-  © 2026 BizSwap. All rights reserved.
-</footer>
+</section>
 
 </body>
 </html>
