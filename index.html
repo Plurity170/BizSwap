@@ -87,10 +87,52 @@ footer a {
   text-decoration: none;
   margin: 0 8px;
 }
+
+.main-nav {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 14px 20px;
+}
+
+.nav-container {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 20px;
+  color: #1769ff;
+}
+
+.nav-links a {
+  margin-left: 18px;
+  text-decoration: none;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.nav-links a:hover {
+  color: #1769ff;
+}
 </style>
 </head>
 
 <body>
+
+<nav class="main-nav">
+  <div class="nav-container">
+    <strong class="logo">BizSwap</strong>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="buy.html">Buy</a>
+      <a href="sell.html">Sell</a>
+      <a href="studies.html">Studies</a>
+    </div>
+  </div>
+</nav>
 
 <header>
   <h1>BizSwap</h1>
