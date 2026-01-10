@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Submit a Business – BizSwap</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #1769ff;
+  --light: #f3f4f6;
+  --card: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  background: var(--light);
+  color: #333;
+}
+
+header {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+section {
+  max-width: 700px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+form {
+  background: var(--card);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+
+button {
+  margin-top: 20px;
+  padding: 14px;
+  width: 100%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Submit a Business</h1>
+  <p>Share your business with serious, informed buyers.</p>
+</header>
+
+<section>
+  <form>
+    <label>Business Name</label>
+    <input type="text" placeholder="e.g. ABC Logistics">
+
+    <label>Industry</label>
+    <input type="text" placeholder="e.g. Retail, Services, Tech">
+
+    <label>Location</label>
+    <input type="text" placeholder="City / Country">
+
+    <label>Brief Description</label>
+    <textarea rows="4" placeholder="Short overview of the business"></textarea>
+
+    <label>Contact Email</label>
+    <input type="email" placeholder="you@example.com">
+
+    <button type="submit">Submit for Review</button>
+  </form>
+
+  <p style="margin-top:20px; font-size:14px;">
+    BizSwap does not act as a broker or verify submissions.
+    This form is for discovery and educational purposes only.
+  </p>
+
+  <p>
+    <a href="index.html">← Back to Home</a>
+  </p>
+</section>
+
+</body>
+</html>
