@@ -10,6 +10,15 @@
 
 <body>
 
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const links = document.querySelector('.nav-links');
+
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('show');
+  });
+</script>
+
 <nav class="main-nav">
   <div class="nav-container">
     <div class="logo">BizSwap</div>
