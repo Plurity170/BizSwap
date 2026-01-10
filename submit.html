@@ -5,101 +5,19 @@
 <title>Submit a Business – BizSwap</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-:root {
-  --primary: #1769ff;
-  --light: #f3f4f6;
-  --card: #ffffff;
-}
-
-body {
-  margin: 0;
-  font-family: system-ui, Arial, sans-serif;
-  background: var(--light);
-  color: #333;
-}
-
-header {
-  background: var(--primary);
-  color: white;
-  text-align: center;
-  padding: 50px 20px;
-}
-
-section {
-  max-width: 700px;
-  margin: auto;
-  padding: 40px 20px;
-}
-
-form {
-  background: var(--card);
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-}
-
-label {
-  display: block;
-  margin-top: 15px;
-  font-weight: 600;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 12px;
-  margin-top: 6px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-family: inherit;
-}
-
-button {
-  margin-top: 20px;
-  padding: 14px;
-  width: 100%;
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-}
-
- .main-nav {
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  padding: 14px 20px;
-}
-
-.nav-container {
-  max-width: 1000px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 20px;
-  color: #1769ff;
-}
-
-.nav-links a {
-  margin-left: 18px;
-  text-decoration: none;
-  color: #1f2937;
-  font-weight: 600;
-}
-
-.nav-links a:hover {
-  color: #1769ff;
-}
-
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const links = document.querySelector('.nav-links');
+
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('show');
+  });
+</script>
 
 <nav class="main-nav">
   <div class="nav-container">
