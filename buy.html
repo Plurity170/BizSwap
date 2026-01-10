@@ -1,61 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Buy a Business | BizSwap</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BizSwap</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, Arial, sans-serif;
-      background: #f3f4f6;
-      color: #333;
-    }
-
-    header {
-      background: #1769ff;
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 50px 20px;
-    }
-
-    .listings {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .listing {
-      background: white;
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-    }
-
-    .listing h3 {
-      margin-top: 0;
-    }
-
-    .tag {
-      display: inline-block;
-      background: #e5e7eb;
-      color: #374151;
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 13px;
-      margin-bottom: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const links = document.querySelector('.nav-links');
+
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('show');
+  });
+</script>
 
 <nav class="main-nav">
   <div class="nav-container">
