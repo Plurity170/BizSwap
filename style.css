@@ -1,0 +1,23 @@
+.how-it-works {
+  padding: 40px 20px;
+  background-color: #f8f9fb;
+  text-align: center;
+}
+
+.how-it-works h2 {
+  margin-bottom: 30px;
+}
+
+.steps {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.step {
+  margin-bottom: 25px;
+}
+
+.step h3 {
+  color: #0d6efd;
+  margin-bottom: 8px;
+}
