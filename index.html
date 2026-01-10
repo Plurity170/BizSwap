@@ -161,16 +161,55 @@
 
   <!-- NAV -->
   <nav class="main-nav">
-    <div class="nav-container">
-      <div class="logo">BizSwap</div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="buy.html">Buy</a>
-        <a href="sell.html">Sell</a>
-        <a href="studies.html">Studies</a>
-      </div>
+  <div class="nav-container">
+    <div class="logo">BizSwap</div>
+
+    <button class="menu-toggle" aria-label="Toggle menu">
+      ☰
+    </button>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="buy.html">Buy</a>
+      <a href="sell.html">Sell</a>
+      <a href="studies.html">Studies</a>
     </div>
-  </nav>
+  </div>
+</nav>
+
+    .menu-toggle {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+}
 
   <!-- HERO -->
   <header>
@@ -188,9 +227,18 @@
   <section>
     <h2>How BizSwap Works</h2>
 
+      .card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.1);
+}
+
     <div class="cards">
       <div class="card">
-        <h3>Discover Opportunities</h3>
+        <h3>🔍 Discover Opportunities</h3>
         <p>Explore real businesses and case studies without sales pressure or middlemen.</p>
       </div>
 
@@ -214,6 +262,15 @@
       <a href="#">Privacy</a>
     </p>
   </footer>
+
+   <script>
+  const toggle = document.querySelector('.menu-toggle');
+  const links = document.querySelector('.nav-links');
+
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('show');
+  });
+</script>
 
 </body>
 </html>
