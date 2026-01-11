@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>List a Business | BizSwap</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html">BizSwap</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="buy.html">Buy</a></li>
+        <li><a href="sell.html" class="active">Sell</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <h1>List Your Business</h1>
+    <p>
+      Submit your business, product, or service for review and publication on BizSwap.
+    </p>
+  </section>
+
+  <!-- Instructions -->
+  <section class="instructions">
+    <h2>Before You Submit</h2>
+    <ul>
+      <li>All listings are reviewed before publication.</li>
+      <li>BizSwap does not handle payments or negotiations.</li>
+      <li>Ensure all information provided is accurate.</li>
+      <li>Listings that violate local laws will not be approved.</li>
+    </ul>
+  </section>
+
+  <!-- Submission Form -->
+  <section class="form-section">
+    <h2>Listing Details</h2>
+
+    <form>
+      <label>
+        Full Name
+        <input type="text" required />
+      </label>
+
+      <label>
+        Business / Listing Title
+        <input type="text" required />
+      </label>
+
+      <label>
+        Category
+        <select required>
+          <option value="">Select category</option>
+          <option>Business</option>
+          <option>Product</option>
+          <option>Service</option>
+        </select>
+      </label>
+
+      <label>
+        Location (Country / City)
+        <input type="text" required />
+      </label>
+
+      <label>
+        Price (Optional)
+        <input type="text" placeholder="Negotiable" />
+      </label>
+
+      <label>
+        Description
+        <textarea rows="5" required></textarea>
+      </label>
+
+      <label>
+        WhatsApp Number
+        <input type="text" placeholder="+CountryCode Number" required />
+      </label>
+
+      <button type="submit" class="btn primary">
+        Submit Listing
+      </button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      Submitting a listing does not guarantee publication.
+      BizSwap reserves the right to reject listings.
+    </p>
+    <p>
+      &copy; 2026 BizSwap. All rights reserved.
+    </p>
+  </footer>
+
+</body>
+</html>
