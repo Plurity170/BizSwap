@@ -1,69 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BizSwap — Buy. Sell. Grow.</title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BizSwap | Buy. Sell. Grow.</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="logo">BizSwap</div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="buy.html">Buy</a>
-      <a href="sell.html">Sell</a>
-      <a href="about.html">About</a>
+  <!-- HEADER -->
+  <header class="navbar">
+    <div class="nav-container">
+      <h1 class="logo">BizSwap</h1>
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="buy.html">Buy</a>
+        <a href="sell.html">Sell</a>
+        <a href="about.html">About</a>
+      </nav>
     </div>
-  </nav>
+  </header>
 
+  <!-- MAIN CONTENT -->
   <main class="container">
 
-    <section class="hero">
-      <h1>Buy. Sell. Grow.</h1>
+    <!-- HERO -->
+    <section class="card">
+      <h2>Buy. Sell. Grow.</h2>
       <p>
         BizSwap is a pan-regional business marketplace connecting buyers
         and sellers across industries and borders.
       </p>
-
-      <a class="btn btn-primary" href="buy.html">Browse Listings</a>
-      <a class="btn btn-outline" href="sell.html">List a Business</a>
+      <p>
+        Discover opportunities, list your business, and connect directly
+        — no middlemen, no hidden complexity.
+      </p>
     </section>
 
-    <section>
+    <!-- ACTIONS -->
+    <section class="card">
+      <h2>Get Started</h2>
+      <p>
+        Browse available businesses or list your own opportunity.
+        Communication happens directly via WhatsApp.
+      </p>
+      <p>
+        <a href="buy.html">Browse Listings</a> |
+        <a href="sell.html">List a Business</a>
+      </p>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="card">
       <h2>How BizSwap Works</h2>
 
-      <div class="steps">
-        <div class="step">
-          <h3>1. List</h3>
-          <p>Post a business, product, or service for sale.</p>
-        </div>
+      <p><strong>1. List</strong><br>
+      Post a business, product, or service for sale.</p>
 
-        <div class="step">
-          <h3>2. Connect</h3>
-          <p>Interested buyers contact sellers via WhatsApp.</p>
-        </div>
+      <p><strong>2. Connect</strong><br>
+      Interested buyers contact sellers directly via WhatsApp.</p>
 
-        <div class="step">
-          <h3>3. Deal</h3>
-          <p>Negotiate and close the deal independently.</p>
-        </div>
-      </div>
+      <p><strong>3. Deal</strong><br>
+      Negotiate and close the deal independently.</p>
+
+      <p>
+        BizSwap does not handle payments or transactions.
+        Buyers and sellers engage at their own discretion.
+      </p>
     </section>
 
   </main>
 
-  <footer>
-    <p>
-      BizSwap does not handle payments or transactions.
-      Buyers and sellers engage at their own discretion.
-    </p>
+  <!-- FOOTER -->
+  <footer class="footer">
     <p>© 2026 BizSwap. All rights reserved.</p>
   </footer>
 
 </body>
-  
 </html>
