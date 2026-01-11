@@ -2,94 +2,81 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>BizSwap – Buy & Sell Businesses</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<style>
-.card {
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.1);
-}
-</style>
-
-  <link rel="stylesheet" href="css/style.css">
+  <title>BizSwap | Buy. Sell. Grow.</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-
 <body>
 
-  <!-- NAV -->
-  <nav class="main-nav">
-  <div class="nav-container">
-    <div class="logo">BizSwap</div>
-
-    <button class="menu-toggle" aria-label="Toggle menu">
-      ☰
-    </button>
-
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="buy.html">Buy</a>
-      <a href="sell.html">Sell</a>
-      <a href="studies.html">Studies</a>
-    </div>
-  </div>
-</nav>
-
-  <!-- HERO -->
+  <!-- Navigation -->
   <header>
-    <h1>BizSwap</h1>
-    <p>Where Business Buyers & Sellers Connect</p>
-    <p>A discovery and education platform — no brokers, no pressure.</p>
-
-    <div class="cta-links">
-      <a href="buy.html">Buy a Business</a>
-      <a href="sell.html" class="secondary">Sell a Business</a>
-    </div>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html">BizSwap</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="buy.html">Buy</a></li>
+        <li><a href="sell.html">Sell</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- HOW IT WORKS -->
-  <section>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Buy. Sell. Grow.</h1>
+    <p>
+      BizSwap is a pan-regional business marketplace connecting buyers and sellers
+      across industries and borders.
+    </p>
+    <div class="hero-buttons">
+      <a href="buy.html" class="btn primary">Browse Listings</a>
+      <a href="sell.html" class="btn secondary">List a Business</a>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works">
     <h2>How BizSwap Works</h2>
-
-    <div class="cards">
-      <div class="card">
-        <h3>🔍 Discover Opportunities</h3>
-        <p>Explore real businesses and case studies without sales pressure or middlemen.</p>
+    <div class="steps">
+      <div class="step">
+        <h3>1. List</h3>
+        <p>Post a business, product, or service for sale.</p>
       </div>
-
-      <div class="card">
-        <h3>Learn Before You Act</h3>
-        <p>Understand valuation, risks, and deal structures before making any move.</p>
+      <div class="step">
+        <h3>2. Connect</h3>
+        <p>Interested buyers contact sellers directly via WhatsApp.</p>
       </div>
-
-      <div class="card">
-        <h3>Connect Directly</h3>
-        <p>Buyers and sellers connect transparently — no brokers, no commissions.</p>
+      <div class="step">
+        <h3>3. Deal</h3>
+        <p>Negotiate and close the deal independently.</p>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- Featured Listings -->
+  <section class="featured">
+    <h2>Featured Listings</h2>
+    <p class="note">
+      Want your listing featured here? <a href="sell.html">Contact us</a>.
+    </p>
+
+    <div class="featured-grid">
+      <!-- Featured listings will appear here -->
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
     <p>
-      © 2026 BizSwap |
-      <a href="studies.html">Studies</a> 
-      <a href="#">Privacy</a>
+      BizSwap does not handle payments or transactions.
+      Buyers and sellers engage at their own discretion.
+    </p>
+    <p>
+      &copy; 2026 BizSwap. All rights reserved.
     </p>
   </footer>
-
-   <script>
-  const toggle = document.querySelector('.menu-toggle');
-  const links = document.querySelector('.nav-links');
-
-  toggle.addEventListener('click', () => {
-    links.classList.toggle('show');
-  });
-</script>
 
 </body>
 </html>
