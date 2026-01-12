@@ -1,0 +1,742 @@
+BizSwap Core Logic & System Blueprint
+
+> Purpose: This document is the single source of truth for how BizSwap works. It defines the marketplace logic, user roles, money flows, and future scalability rules. Any upgrade, platform build, or partnership must align with this core logic.
+
+
+
+
+---
+
+1. What BizSwap Is
+
+BizSwap is a digital business marketplace that connects:
+
+People selling businesses
+
+People seeking partnerships
+
+Investors and collaborators
+
+
+BizSwap does not directly own the businesses listed. It provides:
+
+Discovery
+
+Trust structure
+
+Transaction facilitation
+
+Visibility and matchmaking
+
+
+
+---
+
+2. Core User Types
+
+2.1 Business Sellers
+
+People or companies listing businesses for:
+
+Sale
+
+Partial sale
+
+Partnership
+
+
+Value BizSwap Provides:
+
+Exposure to international & local buyers
+
+Structured listing
+
+Credibility
+
+
+
+---
+
+2.2 Buyers / Investors
+
+Individuals or companies looking to:
+
+Buy a business
+
+Invest
+
+Acquire shares
+
+
+Value BizSwap Provides:
+
+Curated opportunities
+
+Reduced search friction
+
+Cross-border access
+
+
+
+---
+
+2.3 Partnership Seekers
+
+Users who:
+
+Want strategic partners
+
+Want co-founders
+
+Want regional expansion partners
+
+
+Value BizSwap Provides:
+
+Matching
+
+Visibility
+
+Negotiation channel
+
+
+
+---
+
+3. BizSwap Revenue Model
+
+BizSwap earns through access, visibility, and facilitation, not ownership.
+Locked in. 🔒💪
+We continue.
+
+Here’s the clean next step so we don’t lose momentum or create future chaos.
+
+Step 1: Create a single source of truth for BeeSwap Core
+
+This is the “brain” of the whole system. Everything else plugs into this.
+
+Call it: beeswap-core
+
+Purpose:
+
+Business logic (rules, flows, validations)
+
+NOT UI
+
+NOT payment-provider–specific hacks
+
+Reusable across web, mobile, API, partners
+
+
+What goes inside BeeSwap Core
+
+Think in layers:
+
+1. Domain Logic (non-negotiable)
+
+User types (buyer, seller, partner, admin)
+
+Listings (sell company, partnership, services)
+
+Transactions
+
+Escrow rules
+
+Fees & commissions
+
+Disputes & resolutions
+
+Subscription plans (basic / pro / intl)
+
+
+This layer must never depend on Payoneer, PayPal, UI, or country rules.
+
+2. Use Cases (flows)
+
+Examples:
+
+CreateListing
+
+MatchBuyerSeller
+
+InitiateEscrow
+
+ReleaseFunds
+
+CancelTransaction
+
+UpgradeSubscription
+
+
+These are the “verbs” of BeeSwap.
+
+3. Interfaces (ports)
+
+Define what the system expects, not how it’s done:
+
+PaymentProvider
+
+NotificationService
+
+IdentityVerification
+
+StorageRepository
+
+
+Later, Payoneer, PayPal, EcoCash, etc. become adapters, not core logic.
+
+Recommended structure (simple & future-proof)
+
+beeswap-core/
+ ├── domain/
+ │    ├── user.ts
+ │    ├── listing.ts
+ │    ├── transaction.ts
+ │    ├── escrow.ts
+ │    └── subscription.ts
+ │
+ ├── use-cases/
+ │    ├── create-listing.ts
+ │    ├── initiate-escrow.ts
+ │    ├── release-funds.ts
+ │    └── resolve-dispute.ts
+ │
+ ├── ports/
+ │    ├── payment-provider.ts
+ │    ├── notification.ts
+ │    └── repository.ts
+ │
+ ├── errors/
+ │    └── domain-errors.ts
+ │
+ └── index.ts
+
+Language-wise:
+
+TypeScript → best if you’re web + mobile + backend
+
+Pure JS only if you want speed over safety (not recommended here)
+
+
+Step 2: Decide where this lives
+
+Best options (ranked):
+
+1. GitHub (private repo) ✅
+
+
+2. GitLab (private)
+
+
+3. Local only (temporary, risky)
+
+
+
+This repo should outlive:
+
+Websites
+
+Payment providers
+
+Hosting platforms
+
+
+Step 3: Lock a rule (important)
+
+> NO UI CODE touches BeeSwap Core directly.
+UI → API → Core.
+
+
+
+This one rule will save you months later.
+
+
+---
+
+Next move (you choose, I’ll execute): 1️⃣ Define BeeSwap domain objects (User, Listing, Transaction)
+2️⃣ Design Escrow flow end-to-end
+3️⃣ Map Zimbabwe + international payments as adapters
+4️⃣ Create subscription & fee logic
+5️⃣ Turn this into a real repo structure with starter code
+
+Say the number. We keep pushing. 🚀🐝
+Perfect. Locked.
+We’re doing 1 → 5 for BizSwap, clean, structured, no shortcuts. 🧱🔥
+I’ll walk you through it like we’re building something that must survive scale, payments, and regulation changes.
+
+
+---
+
+1️⃣ BizSwap Core – Domain Objects (the foundation)
+
+These are pure business rules. No UI. No Payoneer. No country logic.
+
+User
+
+User {
+  id
+  type: BUYER | SELLER | PARTNER | ADMIN
+  verificationLevel
+  country
+  status: ACTIVE | SUSPENDED
+}
+
+Listing
+
+Listing {
+  id
+  ownerId
+  category: COMPANY_SALE | PARTNERSHIP | SERVICE
+  price
+  currency
+  status: DRAFT | ACTIVE | LOCKED | SOLD
+}
+
+Transaction
+
+Transaction {
+  id
+  buyerId
+  sellerId
+  listingId
+  amount
+  status: INITIATED | FUNDED | RELEASED | DISPUTED | CANCELLED
+}
+
+Escrow
+
+Escrow {
+  transactionId
+  holdAmount
+  releaseConditions
+  state: HOLDING | RELEASED | REFUNDED
+}
+
+Subscription
+
+Subscription {
+  userId
+  plan: BASIC | PRO | INTERNATIONAL
+  expiresAt
+}
+
+👉 These never change, even if BizSwap becomes a billion-dollar platform.
+
+
+---
+
+2️⃣ Escrow Flow (heart of trust)
+
+This is non-negotiable for BizSwap credibility.
+
+Escrow lifecycle
+
+1. Buyer initiates transaction
+
+
+2. Funds go into escrow (not seller)
+
+
+3. Listing locks
+
+
+4. Seller delivers ownership/partnership terms
+
+
+5. Buyer confirms OR dispute timer expires
+
+
+6. Funds released OR refunded
+
+
+
+Core rule
+
+> BizSwap never assumes trust. Escrow enforces it.
+
+
+
+Release conditions examples:
+
+Manual buyer approval
+
+Auto-release after X days
+
+Admin arbitration (dispute)
+
+
+
+---
+
+3️⃣ Payment strategy (Zimbabwe + International)
+
+⚠️ Critical architectural decision
+Payments are adapters, NOT core logic.
+
+Payment interface (Core only knows this)
+
+PaymentProvider {
+  collectFunds(amount, currency)
+  releaseFunds(amount, recipient)
+  refundFunds(amount, sender)
+}
+
+Adapters (plug later)
+
+PayoneerAdapter
+
+PayPalAdapter
+
+EcoCashAdapter
+
+OMARIAdapter
+
+BankTransferAdapter
+
+
+BizSwap Core doesn’t care which one works today.
+
+👉 If PayPal blocks Zim tomorrow → zero rewrite.
+
+
+---
+
+4️⃣ Subscription & Fee Logic
+
+BizSwap makes money without touching escrow funds illegally.
+
+Plans
+
+Basic – limited listings, higher commission
+
+Pro – more listings, lower commission
+
+International – cross-border, compliance checks
+
+
+Fee model (example)
+
+Listing fee (optional)
+
+Transaction commission (%)
+
+Withdrawal fee (adapter-level)
+
+
+Rule
+
+> Fees are calculated in core, collected by adapters.
+
+
+
+No hidden logic in UI. Ever.
+
+
+---
+
+5️⃣ Real Repo Structure (starter-ready)
+
+Repo name
+
+bizswap-core (cleaner, more professional)
+
+Structure
+
+bizswap-core/
+ ├── src/
+ │   ├── domain/
+ │   │   ├── user.ts
+ │   │   ├── listing.ts
+ │   │   ├── transaction.ts
+ │   │   ├── escrow.ts
+ │   │   └── subscription.ts
+ │   │
+ │   ├── use-cases/
+ │   │   ├── create-listing.ts
+ │   │   ├── initiate-transaction.ts
+ │   │   ├── fund-escrow.ts
+ │   │   ├── release-escrow.ts
+ │   │   └── dispute-transaction.ts
+ │   │
+ │   ├── ports/
+ │   │   ├── payment-provider.ts
+ │   │   ├── notification.ts
+ │   │   └── repository.ts
+ │   │
+ │   ├── errors/
+ │   │   └── domain-errors.ts
+ │   │
+ │   └── index.ts
+ ├── package.json
+ └── README.md
+
+Tech choice (strong recommendation)
+
+TypeScript
+
+No frameworks inside core
+
+Exported as a package
+
+
+
+---
+
+🔒 One Rule That Saves BizSwap
+
+> If something can break because of a payment provider, it does NOT belong in Core.
+
+
+
+
+---
+
+Next decisive move (pick one, we go deep):
+
+A️⃣ Write actual TypeScript code for domain + escrow
+B️⃣ Design Admin & Dispute powers (very important legally)
+C️⃣ Design API contract between UI ↔ Core
+D️⃣ Map MVP launch path (what must exist vs what can wait)
+
+Say the letter.
+We’re not experimenting anymore — we’re building. 🐝🚀
+Perfect. Locked.
+We’re doing 1 → 5 for BizSwap, clean, structured, no shortcuts. 🧱🔥
+I’ll walk you through it like we’re building something that must survive scale, payments, and regulation changes.
+
+
+---
+
+1️⃣ BizSwap Core – Domain Objects (the foundation)
+
+These are pure business rules. No UI. No Payoneer. No country logic.
+
+User
+
+User {
+  id
+  type: BUYER | SELLER | PARTNER | ADMIN
+  verificationLevel
+  country
+  status: ACTIVE | SUSPENDED
+}
+
+Listing
+
+Listing {
+  id
+  ownerId
+  category: COMPANY_SALE | PARTNERSHIP | SERVICE
+  price
+  currency
+  status: DRAFT | ACTIVE | LOCKED | SOLD
+}
+
+Transaction
+
+Transaction {
+  id
+  buyerId
+  sellerId
+  listingId
+  amount
+  status: INITIATED | FUNDED | RELEASED | DISPUTED | CANCELLED
+}
+
+Escrow
+
+Escrow {
+  transactionId
+  holdAmount
+  releaseConditions
+  state: HOLDING | RELEASED | REFUNDED
+}
+
+Subscription
+
+Subscription {
+  userId
+  plan: BASIC | PRO | INTERNATIONAL
+  expiresAt
+}
+
+👉 These never change, even if BizSwap becomes a billion-dollar platform.
+
+
+---
+
+2️⃣ Escrow Flow (heart of trust)
+
+This is non-negotiable for BizSwap credibility.
+
+Escrow lifecycle
+
+1. Buyer initiates transaction
+
+
+2. Funds go into escrow (not seller)
+
+
+3. Listing locks
+
+
+4. Seller delivers ownership/partnership terms
+
+
+5. Buyer confirms OR dispute timer expires
+
+
+6. Funds released OR refunded
+
+
+
+Core rule
+
+> BizSwap never assumes trust. Escrow enforces it.
+
+
+
+Release conditions examples:
+
+Manual buyer approval
+
+Auto-release after X days
+
+Admin arbitration (dispute)
+
+
+
+---
+
+3️⃣ Payment strategy (Zimbabwe + International)
+
+⚠️ Critical architectural decision
+Payments are adapters, NOT core logic.
+
+Payment interface (Core only knows this)
+
+PaymentProvider {
+  collectFunds(amount, currency)
+  releaseFunds(amount, recipient)
+  refundFunds(amount, sender)
+}
+
+Adapters (plug later)
+
+PayoneerAdapter
+
+PayPalAdapter
+
+EcoCashAdapter
+
+OMARIAdapter
+
+BankTransferAdapter
+
+
+BizSwap Core doesn’t care which one works today.
+
+👉 If PayPal blocks Zim tomorrow → zero rewrite.
+
+
+---
+
+4️⃣ Subscription & Fee Logic
+
+BizSwap makes money without touching escrow funds illegally.
+
+Plans
+
+Basic – limited listings, higher commission
+
+Pro – more listings, lower commission
+
+International – cross-border, compliance checks
+
+
+Fee model (example)
+
+Listing fee (optional)
+
+Transaction commission (%)
+
+Withdrawal fee (adapter-level)
+
+
+Rule
+
+> Fees are calculated in core, collected by adapters.
+
+
+
+No hidden logic in UI. Ever.
+
+
+---
+
+5️⃣ Real Repo Structure (starter-ready)
+
+Repo name
+
+bizswap-core (cleaner, more professional)
+
+Structure
+
+bizswap-core/
+ ├── src/
+ │   ├── domain/
+ │   │   ├── user.ts
+ │   │   ├── listing.ts
+ │   │   ├── transaction.ts
+ │   │   ├── escrow.ts
+ │   │   └── subscription.ts
+ │   │
+ │   ├── use-cases/
+ │   │   ├── create-listing.ts
+ │   │   ├── initiate-transaction.ts
+ │   │   ├── fund-escrow.ts
+ │   │   ├── release-escrow.ts
+ │   │   └── dispute-transaction.ts
+ │   │
+ │   ├── ports/
+ │   │   ├── payment-provider.ts
+ │   │   ├── notification.ts
+ │   │   └── repository.ts
+ │   │
+ │   ├── errors/
+ │   │   └── domain-errors.ts
+ │   │
+ │   └── index.ts
+ ├── package.json
+ └── README.md
+
+Tech choice (strong recommendation)
+
+TypeScript
+
+No frameworks inside core
+
+Exported as a package
+
+
+
+---
+
+🔒 One Rule That Saves BizSwap
+
+> If something can break because of a payment provider, it does NOT belong in Core.
+
+
+
+
+---
+
+Next decisive move (pick one, we go deep):
+
+A️⃣ Write actual TypeScript code for domain + escrow
+B️⃣ Design Admin & Dispute powers (very important legally)
+C️⃣ Design API contract between UI ↔ Core
+D️⃣ Map MVP launch path (what must exist vs what can wait)
+
+Say the letter.
+We’re not experimenting anymore — we’re building. 🐝🚀
